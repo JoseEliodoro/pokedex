@@ -1,78 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 .card{
-  max-width: 180px;
+  max-width: 100%;
+  width: 280px;
   min-width: 150px;
-  height: 100px;
-  margin: 10px;
+  margin: 5px;
   perspective: 700px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 300ms;
 }
-.front, .back{
-  position: absolute;
+
+.card:hover{
+  transform: scale(1.03);
+}
+
+img{
   width: 100%;
-  height: 100%;
-  display: flex;
-  transition: 700ms;
-  border-radius: 15px;
-  border: 1px solid;
-
-  padding: 5px;
-}
-.front{
-  z-index: 1;
+  background-color: #efefef;
 }
 
-.front .image{
-  width: 70%;
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  color: #fff;
+.text h2::first-letter{
+  font-family: 'Bebas Neue', cursive;
 }
 
-.front img{
-  width: 100%;
-  height: 100%;
-}
 
-.info{
-  width: 50%;
-  height: 50%;
-  padding: 20px 10px 0 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.info h3{
-  font-size: .8em;
-  margin: 10px 0;
+.text h2::first-letter{
   text-transform: uppercase;
 }
 
-.info p{
-  color: #ffffff;
-  font-family: 'Luckiest Guy', cursive;
+.type{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-.back{
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: rotateY(-180deg);
-  backface-visibility: hidden;
-}
-.back div {
-  width: 100%;
-  height: 100%;
+.type span{
+  width: 100px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  border-radius: 5px;
+  margin-right: 3px;
+  font-size: 12px;
 }
-.card:hover .front{
-  transform: rotateY(180deg);
-  z-index: 0;
-}
-.card:hover .back{
-  transform: rotateY(0deg);
-  z-index: 1;
-}
+
+.type .fire{background-color: #ff0000;color: #fff;}
+.type .water{background-color: #4592c4;}
+.type .grass{background-color: #90ee90;}
+.type .electric{background-color: #ffff00;}
+.type .fighting{background-color: #daa520;color: #fff;}
+.type .ice {background-color: #DAE4E9;}
+.type .psychic{background-color: #006400;color: #fff;}
+.type .poison{background-color: #b97fc9;color: #fff;}
+.type .normal{background-color: #964b00;color: #fff;}
+.type .dark{background-color: #1b1e23;color: #fff;}
+.type .ground{background-color: #e2725b;}
+.type .steel{background-color: #b5b8b1;}
+.type .rock{background-color: #65645D;color: #fff;}
+.type .bug{background-color: #ff6961;}
+.type .flying{background-color: #add8e6;}
+.type .ghost{background-color: #c8a2c8;}
+.type .dragon{background-color: #ff7f00;color: #fff;}
+.type .fairy{background-color: #ffcbdb;}

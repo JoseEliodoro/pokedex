@@ -1,0 +1,28 @@
+button{
+  max-width: 600px;
+  width: 400px;
+  min-width: 250px;
+  border: none;
+  border-radius: 15px;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 15px;
+  padding: 10px 50px;
+  margin: 50px 0;
+  background-color: #db3b3b;
+  color: #fff;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+button:hover{
+  transform: scale(1.01);
+  background-color: #e15656;
+  color: #ececec;
+}
+
+button:active{
+  transition: 400ms;
+  transform: scale(1.01);
+  background-color: #ececec;
+  color: #e15656;
+}
