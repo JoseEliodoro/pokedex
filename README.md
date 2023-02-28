@@ -10,7 +10,7 @@ Este projeto foi desenvolvido com o intuito de estudo e ainda está em conclusã
 * ReactJS
 
 ## Site
-### [Pokedex]()
+### [Pokedex](https://joseeliodoro.github.io/pokedex/)
 
 <br>
 ### 📋 Como executar o projeto
