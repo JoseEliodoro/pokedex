@@ -41,7 +41,7 @@ function App() {
   const handleSubmit = (e)=>{
     e.preventDefault();
     if (search !== ''){
-      fetch(`https://pokeapi.co/api/v2/pokemon/${search}`, {method: 'GET'})
+      fetch(`https://pokeapi.co/api/v2/pokemon/${search.toLowerCase()}`, {method: 'GET'})
       .then(response=> response.json()).then(resp=> {
         setPokedex({results: [{url: `https://pokeapi.co/api/v2/pokemon/${resp.id}`}]});
       }).catch(err=> {
