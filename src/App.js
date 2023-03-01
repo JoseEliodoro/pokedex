@@ -10,11 +10,10 @@ function App() {
   const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon");
   const [next, setNext] = useState(false);
 
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
   const inputRef = useRef();
   useEffect(()=>{
-
-    setNext(true)
+    setNext(true);
 
     fetch(url, {method: 'GET'})
     .then(response=> response.json()).then(resp=> {
@@ -28,42 +27,69 @@ function App() {
   }, [url]);
 
   const handleMorePokemon = ()=>{
-    if(pokedex.next === undefined) setUrl('https://pokeapi.co/api/v2/pokemon');
-    if(!next){
+    if(pokedex.next === undefined) {
+      setSearch('')
+      url === 'https://pokeapi.co/api/v2/pokemon/' ?
+      setUrl('https://pokeapi.co/api/v2/pokemon'):
+      setUrl('https://pokeapi.co/api/v2/pokemon/');
+    }else if(!next){
       window.scrollTo(0, 0);
       setUrl(pokedex.next);
     }
   }
 
   const handleSubmit = (e)=>{
-    console.log(e)
+    e.preventDefault();
+    if (search !== ''){
+      fetch(`https://pokeapi.co/api/v2/pokemon/${search}`, {method: 'GET'})
+      .then(response=> response.json()).then(resp=> {
+        setPokedex({results: [{url: `https://pokeapi.co/api/v2/pokemon/${resp.id}`}]});
+      }).catch(err=> {
+        console.log('pokemon não encontrado');
+        setPokedex([0, 5]);
+
+      });
+    }
 
   }
-  if (pokedex.length === 0) return <div></div>
 
+  if (pokedex.length === 0) return <div></div>
 
   return (
       <div className="App">
         <div  className='filho'>
-          <input
-            ref={inputRef}
-            value={search}
-            onChange={()=> setSearch(inputRef.current.value)}
-            type='text'
-          />
+          <form className='search'>
+            <input
+              ref={inputRef}
+              value={search}
+              onChange={()=> setSearch(inputRef.current.value)}
+              type='text'
+            />
+            <button className='btn_search' onClick={handleSubmit}>Pesquisar</button>
+          </form>
 
         </div>
+
         <div id='topo' className='filho'>
-          {pokedex.results.map((el, id)=>{
-            return (
-              <Card key={id} poke={el}/>
-            );
-          })}
+
+        {pokedex.results ? (
+          <>
+            {pokedex.results.map((el, id)=>{
+              return (
+                <Card key={id} poke={el}/>
+              );
+            })}
+          </>
+        ):(
+          <p>Pokemon não encontrado</p>
+        )}
+
         </div>
+
         <div className='filho'>
-          <a href="#topo">
+
             <Button handleClick={handleMorePokemon} text='More' disabled={next}/>
-          </a>
+
         </div>
       </div>
   );
