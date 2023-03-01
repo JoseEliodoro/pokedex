@@ -2,7 +2,7 @@
 
 ### 🚀 Começando
 
-Este projeto foi desenvolvido com o intuito de estudo e ainda está em conclusão. Ele foi feito utilizando as seguintes tecnologias:
+Este projeto foi desenvolvido com o intuito de estudo e ele foi feito utilizando as seguintes tecnologias:
 
 * HTML
 * CSS
